@@ -1,3 +1,12 @@
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "✅ Bot is running!"
+
 import os
 import logging
 from flask import Flask
@@ -67,4 +76,4 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
-    main()
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
